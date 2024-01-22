@@ -17,17 +17,17 @@ export const getAllCharacters = async () => {
     }
 }
 
-export const filterCharacters = async (name: string = '', status: string = '', species: string = '', type: string = '', gender: string = '') => {
+export const filterCharacters = async (page: number = 1, name: string = '', species: string = '', gender: string = '', status: string = '') => {
     try {
         const endpoint: string = "character";
         const response = await axios.get(`${BASE_URL}${endpoint}`,
             {
                 responseType: 'json',
                 params: {
+                    page: page,
                     name: name,
                     status: status,
                     species: species,
-                    type: type,
                     gender: gender
                 }
             }
