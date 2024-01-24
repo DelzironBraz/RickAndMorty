@@ -7,7 +7,7 @@ import banner from '../assets/banner_home.png'
 const Home = () => {
 
     return (
-        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', alignContent: 'center', flexDirection: 'column' }}>
+        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', alignContent: 'center', flexDirection: 'column', marginTop: '4rem' }}>
             <Box sx={{ width: '80%' }}>
                 <Banner image={banner} />
                 <CharacterFilter />

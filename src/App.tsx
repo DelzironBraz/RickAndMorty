@@ -1,16 +1,19 @@
 import './App.css';
 
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 import Home from './pages/Home';
+import { Box } from '@mui/material';
+import Navbar from './components/Navbar';
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <>
+      <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
       </Routes>
-    </BrowserRouter>
+    </>
   )
 }
 
