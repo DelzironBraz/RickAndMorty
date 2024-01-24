@@ -10,11 +10,21 @@ const CharacterFilter = () => {
 
     return (
         <Box>
-            <FormControl sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexDirection: 'row', gap: '2rem' }}>
+            <FormControl sx={{
+                display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '2rem', flexDirection: 'row',
+                '@media (max-width: 910px)': {
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(2, 1fr)',
+                },
+                '@media (max-width: 500px)': {
+                    display: 'grid',
+                    gridTemplateColumns: '1fr',
+                },
+            }}>
                 <TextField
                     id="input-with-icon-textfield"
                     label="Name"
-                    placeholder="Filter by name..."
+                    placeholder="   Filter by name..."
                     InputProps={{
                         startAdornment: (
                             <InputAdornment position="end">

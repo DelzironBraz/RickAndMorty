@@ -44,7 +44,7 @@ const CharacterGrid = () => {
             <Grid container spacing={{ xs: 3 }} columns={{ xs: 4, sm: 8, md: 12, lg: 16 }}>
                 {characters.map((character) => (
                     <Grid item xs={4} key={character.id}>
-                        <Card sx={{ width: '240px', height: '244px' }}>
+                        <Card>
                             <CardActionArea>
                                 <CardMedia
                                     component="img"
@@ -53,7 +53,7 @@ const CharacterGrid = () => {
                                     alt={character.name}
                                 />
                                 <CardContent sx={{ padding: '12px 16px' }}>
-                                    <Typography gutterBottom component="div" sx={{ fontSize: '20px' }}>
+                                    <Typography gutterBottom component="div" sx={{ fontSize: '20px', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}>
                                         {character.name}
                                     </Typography>
                                     <Typography gutterBottom component="div" sx={{ fontSize: '14px' }}>
@@ -66,7 +66,7 @@ const CharacterGrid = () => {
                 ))}
             </Grid>
             <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'row', marginY: '2rem' }}>
-                <Pagination count={count} page={page} variant="outlined" shape="rounded" onChange={handleChange} />
+                <Pagination count={count} page={page} variant="outlined" shape="rounded" onChange={handleChange} siblingCount={1} />
             </Box>
         </Box>
     );
