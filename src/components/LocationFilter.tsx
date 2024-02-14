@@ -1,11 +1,11 @@
 import { Box, FormControl, InputAdornment, MenuItem, TextField } from "@mui/material";
-import { useDispatch, useSelector } from "react-redux";
-import { Gender, Species, Status } from "../utils/charactersFilters";
-import { setGender, setName, setSpecies, setStatus } from "../utils/redux/characterSlice";
 import { BiSearchAlt } from "react-icons/bi";
+import { Dimension, Type } from "../utils/locationsFilters";
+import { useDispatch, useSelector } from "react-redux";
+import { setDimension, setName, setType } from "../utils/redux/locationSlice";
 
-const CharacterFilter = () => {
-    const { name, species, gender, status } = useSelector((state) => state.characterStore);
+const LocationFilter = () => {
+    const { name, type, dimension } = useSelector((state) => state.locationStore);
     const dispatch = useDispatch();
 
     return (
@@ -40,13 +40,13 @@ const CharacterFilter = () => {
                 <TextField
                     id="outlined-select-currency"
                     select
-                    label="Species"
-                    placeholder="Species"
-                    onChange={event => dispatch(setSpecies(event.target.value))}
-                    value={species}
+                    label="Type"
+                    placeholder="Type"
+                    onChange={event => dispatch(setType(event.target.value))}
+                    value={type}
                     fullWidth
                 >
-                    {Species.map((option, index) => (
+                    {Type.map((option, index) => (
                         <MenuItem key={index} value={option}>
                             {option}
                         </MenuItem>
@@ -55,28 +55,13 @@ const CharacterFilter = () => {
                 <TextField
                     id="outlined-select-currency"
                     select
-                    label="Gender"
-                    placeholder="Gender"
-                    onChange={event => dispatch(setGender(event.target.value))}
-                    value={gender}
+                    label="Dimension"
+                    placeholder="Dimension"
+                    onChange={event => dispatch(setDimension(event.target.value))}
+                    value={dimension}
                     fullWidth
                 >
-                    {Gender.map((option, index) => (
-                        <MenuItem key={index} value={option}>
-                            {option}
-                        </MenuItem>
-                    ))}
-                </TextField>
-                <TextField
-                    id="outlined-select-currency"
-                    select
-                    label="Status"
-                    placeholder="Status"
-                    onChange={event => dispatch(setStatus(event.target.value))}
-                    value={status}
-                    fullWidth
-                >
-                    {Status.map((option, index) => (
+                    {Dimension.map((option, index) => (
                         <MenuItem key={index} value={option}>
                             {option}
                         </MenuItem>
@@ -84,7 +69,7 @@ const CharacterFilter = () => {
                 </TextField>
             </FormControl>
         </Box>
-    );
+    )
 };
 
-export default CharacterFilter;
+export default LocationFilter;
