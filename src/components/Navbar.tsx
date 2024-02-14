@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { FiMenu } from "react-icons/fi";
 import { IoCloseOutline } from "react-icons/io5";
 import { useState } from "react";
-import logo from '../assets/logo.png';
+import logo from '../assets/logo.svg';
 
 const Navbar = () => {
     const [menu, setMenu] = useState(false);
