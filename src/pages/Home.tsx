@@ -2,7 +2,7 @@ import { Box } from "@mui/material";
 import CharacterFilter from "../components/CharacterFilter";
 import CharacterGrid from "../components/CharacterGrid";
 import Banner from "../components/Banner";
-import banner from '../assets/banner_home.png'
+import banner from '../assets/characters.svg';
 
 const Home = () => {
 
