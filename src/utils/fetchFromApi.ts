@@ -66,13 +66,14 @@ export const filterLocation = async (page: number = 1, name: string = '', type: 
     }
 }
 
-export const filterEpisode = async (name: string = '') => {
+export const filterEpisode = async (page: number = 1, name: string = '') => {
     try {
         const endpoint: string = 'episode';
         const response = await axios.get(`${BASE_URL}${endpoint}`,
             {
                 responseType: 'json',
                 params: {
+                    page: page,
                     name: name
                 }
             }
