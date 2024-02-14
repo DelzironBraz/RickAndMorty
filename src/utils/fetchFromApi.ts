@@ -43,13 +43,14 @@ export const filterCharacters = async (page: number = 1, name: string = '', spec
     }
 }
 
-export const filterLocation = async (name: string = '', type: string = '', dimension: string = '') => {
+export const filterLocation = async (page: number = 1, name: string = '', type: string = '', dimension: string = '') => {
     try {
         const endpoint: string = "location";
         const response = await axios.get(`${BASE_URL}${endpoint}`,
             {
                 responseType: 'json',
                 params: {
+                    page: page,
                     name: name,
                     type: type,
                     dimension: dimension
