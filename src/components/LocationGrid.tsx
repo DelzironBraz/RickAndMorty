@@ -32,7 +32,6 @@ const LocationGrid = () => {
         const { results, info } = data;
         dispatch(setLocation(results));
         dispatch(setCount(info.pages));
-        console.info(results);
     }
 
     const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
