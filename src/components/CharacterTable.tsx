@@ -21,7 +21,12 @@ const CharacterTable = ({ character }) => {
     if (episodeQueries.every(query => query.data)) {
         return (
             <Box sx={{ width: '100%', marginY: '6rem' }}>
-                <TableContainer sx={{ width: '100%', display: 'flex', justifyContent: 'center', gap: '3rem' }}>
+                <TableContainer sx={{
+                    width: '100%', display: 'flex', justifyContent: 'center', gap: '3rem',
+                    '@media (max-width: 500px)': {
+                        flexDirection: 'column'
+                    },
+                }}>
                     <Table aria-label="simple table">
                         <TableHead>
                             <TableRow>
