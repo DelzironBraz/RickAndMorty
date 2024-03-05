@@ -43,6 +43,19 @@ export const filterCharacters = async (page: number = 1, name: string = '', spec
     }
 }
 
+export const getSingleCharacter = async (id: number) => {
+    try {
+        const endpoint = 'character';
+        const response = await axios.get(`${BASE_URL}${endpoint}/${id}`, { responseType: 'json' });
+
+        if (response.status != 200) throw new Error("Error getting characters");
+
+        return response.data;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 export const filterLocation = async (page: number = 1, name: string = '', type: string = '', dimension: string = '') => {
     try {
         const endpoint: string = "location";
@@ -85,4 +98,23 @@ export const filterEpisode = async (page: number = 1, name: string = '') => {
     } catch (error) {
         console.error(error)
     }
-}   
+}
+
+export const getSingleEpisode = async (url: string) => {
+    try {
+        const endpoint: string = 'episode/';
+        const urlId = url.split('/').pop();
+
+        const response = await axios.get(`${BASE_URL}${endpoint}${urlId}`,
+            {
+                responseType: 'json',
+            }
+        );
+
+        if (response.status != 200) throw new Error("Error getting location");
+
+        return response.data;
+    } catch (error) {
+        console.error(error);
+    }
+}
