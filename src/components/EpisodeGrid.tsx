@@ -3,6 +3,8 @@ import { useQuery } from "react-query";
 import { useDispatch, useSelector } from "react-redux";
 import { filterEpisode } from "../utils/fetchFromApi";
 import { setEpisodes, setPage, setCount } from "../utils/redux/episodeSlice";
+import Toast from "./Toast";
+import LoadingCircle from "./LoadingCircle";
 
 const EpisodeGrid = () => {
     const { episodes, name, page, count } = useSelector((state) => state.episodeStore);
@@ -12,21 +14,9 @@ const EpisodeGrid = () => {
         filterEpisode(page, name)
     )
 
-    if (isLoading) {
-        return (
-            <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '300px', marginTop: '3rem' }}>
-                <CircularProgress color="success" size={200} />
-            </Box>
-        )
-    }
+    if (isLoading) return <LoadingCircle />
 
-    if (isError) {
-        return (
-            <Alert severity="error" sx={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '300px', marginTop: '3rem' }}>
-                {error.message}
-            </Alert>
-        )
-    }
+    if (isError) return <Toast error={error} />
 
     if (data) {
         const { results, info } = data;
